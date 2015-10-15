@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VitalBlog<%= yield(:title) %> </title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'shared/navbar' %>
+
+	<% if current_user %>
+    	<h3>Connecté en tant que <%= current_user.email %></h3>
+    <% else %>
+    	<h3>Connecté en tant que visiteur</h3>
+    <% end %> 
+
+<div class="container">
+	<p class="alert"><%= alert %></p>
+	<p class="notice btn-success"><%= notice %></p>
+	<%= yield %>
+</div>
+
+
+</body>
+</html>
