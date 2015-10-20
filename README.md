@@ -1,2 +1,0 @@
-# Blog
-Simple blog RoR

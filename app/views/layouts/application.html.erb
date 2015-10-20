@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VitalBlog<%= yield(:title) %> </title>
+  <title>VitalBlog<%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,8 +19,12 @@
     <% end %> 
 
 <div class="container">
-	<p class="alert"><%= alert %></p>
-	<p class="notice btn-success"><%= notice %></p>
+<% if alert %>
+  <button type="button" class="btn btn-danger ribbon"><%= alert %></button>
+<% end %>
+<% if notice %>
+  <button type="button" class="btn btn-success ribbon"><%= notice %></button>
+<% end %>
 	<%= yield %>
 </div>
 

@@ -14,7 +14,6 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    return head :forbidden unless @current_user && current_user.role == "admin"
     @post = Post.new
   end
 
